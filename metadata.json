@@ -1,0 +1,6 @@
+{
+  "name": "VlaamsVoice - Gemini 3.8 Flemish TTS Studio",
+  "description": "Interactive Gemini 3.8 Flash Text-to-Speech studio with authentic Flemish (Belgian Dutch) accents, voice design, dual-speaker screenplay, and audio synthesis.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

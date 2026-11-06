@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Safeguard for environments where window.fetch has only a getter
+      (function () {
+        try {
+          var originalFetch = window.fetch;
+          var customFetch = originalFetch;
+          Object.defineProperty(window, 'fetch', {
+            get: function () {
+              return customFetch;
+            },
+            set: function (val) {
+              customFetch = val;
+            },
+            configurable: true,
+            enumerable: true,
+          });
+        } catch (e) {
+          try {
+            var protoFetch = Window.prototype.fetch || window.fetch;
+            Object.defineProperty(Window.prototype, 'fetch', {
+              get: function () {
+                return protoFetch;
+              },
+              set: function (val) {
+                protoFetch = val;
+              },
+              configurable: true,
+              enumerable: true,
+            });
+          } catch (e2) {}
+        }
+      })();
+    </script>
+    <title>VlaamsVoice - Gemini 3.8 Flemish TTS Studio</title>
+    <meta
+      name="description"
+      content="Interactive Gemini 3.8 Flash Text-to-Speech studio with authentic Flemish (Belgian Dutch) accents, voice design, dual-speaker screenplay, and audio synthesis."
+    />
+    <meta property="og:title" content="VlaamsVoice - Gemini 3.8 Flemish TTS Studio" />
+    <meta
+      property="og:description"
+      content="Interactive Gemini 3.8 Flash Text-to-Speech studio with authentic Flemish (Belgian Dutch) accents, voice design, dual-speaker screenplay, and audio synthesis."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-slate-950 text-slate-100 antialiased selection:bg-amber-500/30 selection:text-amber-200">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
